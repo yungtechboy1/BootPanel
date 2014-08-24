@@ -1,28 +1,11 @@
 <?php
-class conf {
-	public function checkLogin($username, $password) {
-		$ROOT_USER = "BootPanel";
-		$ROOT_PASS = "BootPanelPass123";
-		if($username == $ROOT_USER) {
-			if($password == $ROOT_PASS) {
-				login();
-			}
-		}
-	}
-	
-	public function login() {
-		$loggedin = true;
-	}
-	
-	public function logout() {
-		$loggedin = false;
-		header("Location: index.php");
-	}
-	
-	public function isLoggedin() {
-		if($loggedin === true) {
-			return true;
-		}
-	}
-}
+
+$domain_code = 'website';	//Alpha Numeric and no space
+$random_num_1 = 20;			//Pick a random number between 1 to 500
+$random_num_2 = 565;		//Pick a random number between 500 to 1000
+$random_num_3 = 3;			//Pick a random number between 1 to 3
+
+$users = array(
+	'BootPanel' => 'BootPanelPass123',
+);
 ?>

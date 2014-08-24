@@ -15,7 +15,6 @@
 				</div>
 			<center>";
 	}elseif(file_exists("install/install.php") && file_exists("config/conf.php")){
-		include_once 'config/conf.php';
 		echo "<center>
 				<div class='container'>
 					<p class='alert alert-warning'>
@@ -33,17 +32,7 @@
 				</div>
 			 <center>";
 	}else{
-		include_once 'config/conf.php';
-		$conf = new conf();
-		
-		if(isset($_POST['username']) && isset($_POST['password'])) {
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-			$conf->checkLogin($username, $password);
-			if($conf->isLoggedin() === true) {
-				header("Location: dashboard.php");
-			}
-		}
+		include_once 'config/login/_login.php';
 		
 		echo "<center>
 				<div class='container'>
