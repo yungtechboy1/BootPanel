@@ -2,8 +2,10 @@
 	session_start();
 	ob_start();
 
-	include_once 'config/config.php';
+	include_once 'api/actions.php';
 	include_once 'assets/includes/header.php';
+	
+	$actions = new actions();
 	
 	if(file_exists("install/install.php") && !file_exists("config/conf.php")) {
 		echo "<center>
@@ -13,6 +15,7 @@
 				</div>
 			<center>";
 	}elseif(file_exists("install/install.php") && file_exists("config/conf.php")){
+		include_once 'config/conf.php';
 		echo "<center>
 				<div class='container'>
 					<p class='alert alert-warning'>
@@ -30,9 +33,12 @@
 				</div>
 			 <center>";
 	}else{
-		if($_POST['username'] == $ROOT_USER && $_POST['password'] == $ROOT_PASS){
-			$this->signedIn = true;
-		}else{
+		include_once 'config/conf.php';
+		
+		if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == $ROOT_USER && $_POST['password'] == $ROOT_PASS){
+			$actions->login();
+			header("dashboard.php");
+		}elseif(isset($_POST['username']) && isset($_POST['password'])){
 			echo "<center><p class='alert alert-danger'>Invalid username/password!</p></center>";
 		}
 		
@@ -48,7 +54,7 @@
             					<input type='checkbox' value='remember-me'> Remember me
           					</label>
         				</div>
-						<button class='btn btn-lg btn-info btn-block' type='submit'>Sign in</button>
+						<button class='btn btn-lg btn-info btn-block' type='submit'>Sign In</button>
 					</form>
 				</div>
 			  </center>";

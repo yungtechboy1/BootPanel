@@ -2,9 +2,12 @@
 	session_start();
 	ob_start();
 
+	include_once 'api/actions.php';
 	include_once 'assets/includes/header.php';
 	
-	if($this->signedIn == true){
+	$actions = new actions();
+	
+	if($actions->checkLoggedin() == true){
 		//Show Navigation Bar
 		echo "<div class='navbar navbar-default navbar-fixed-top' role='navigation'>
       			<div class='container'>
@@ -15,7 +18,7 @@
             					<span class='icon-bar'></span>
             				<span class='icon-bar'></span>
           				</button>
-          				<a class='navbar-brand' href='#'>BootPanel</a>
+          				<a class='navbar-brand'>BootPanel</a>
         			</div>
         			<div class='collapse navbar-collapse'>
           				<ul class='nav navbar-nav'>
@@ -23,6 +26,9 @@
             				<li class='active'><a href='file_editor.php'>File Editor</a></li>
             				<li><a href='stats.php'>Statistics</a></li>
           				</ul>
+						<ul class='nav navbar-nav navbar-right'>
+							<li class='active'><a onClick=". $actions->logout() ." >Sign Out</a></li>
+						</ul>
         			</div>
     	  		</div>
     		  </div>";
