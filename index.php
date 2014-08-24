@@ -34,12 +34,15 @@
 			 <center>";
 	}else{
 		include_once 'config/conf.php';
+		$conf = new conf();
 		
-		if(isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == $ROOT_USER && $_POST['password'] == $ROOT_PASS){
-			$actions->login();
-			header("dashboard.php");
-		}elseif(isset($_POST['username']) && isset($_POST['password'])){
-			echo "<center><p class='alert alert-danger'>Invalid username/password!</p></center>";
+		if(isset($_POST['username']) && isset($_POST['password'])) {
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$conf->checkLogin($username, $password);
+			if($conf->isLoggedin() === true) {
+				header("Location: dashboard.php");
+			}
 		}
 		
 		echo "<center>
@@ -47,13 +50,8 @@
 					<form class='form-signin' action='' role='form'>
 						<h2 class='form-signin-heading'>BootPanel</h2>
 						<hr>
-						<input type='text' class='form-control' name='username' placeholder='Username' required='' autofocus=''>
-						<input type='password' class='form-control' name='password' placeholder='Password' required=''>
-						<div class='checkbox'>
-          					<label>
-            					<input type='checkbox' value='remember-me'> Remember me
-          					</label>
-        				</div>
+						<input type='text' class='form-control' name='username' id='username' placeholder='Username' required='' autofocus=''>
+						<input type='password' class='form-control' name='password' id='password' placeholder='Password' required=''>
 						<button class='btn btn-lg btn-info btn-block' type='submit'>Sign In</button>
 					</form>
 				</div>
