@@ -34,28 +34,46 @@
     		  </div>";
 		
 		//Show File Editor
-		$url = 'file_editor.php';
-		if (isset($_POST['text']) && isset($_POST['path'])) {
+		if (isset($_POST['path']) && !empty($_POST['path'])) {
+			$path = fopen($_POST['path'], "w") or die("Unable to open file!");
+			$text = file_get_contents($file);
 			if(!file_exists($_POST['path'])) {
 				fopen($_POST['path'], "w") or die("Unable to create file!");
+				$txt = null;
+				fwrite($path, $txt);
+				fclose($path);
+				file_put_contents($_POST['path'], $txt);
 			}
-			$path = fopen($_POST['path'], "w") or die("Unable to open file!");
-			$txt = null;
-			fwrite($path, $txt);
-			$txt = "Jane Doe\n";
-			fwrite($path, $txt);
-			fclose($path);
-    		file_put_contents($_POST['path'], $_POST['text']);
-    		header(sprintf('Location: %s', $url));
-    		printf('<a href="%s">Moved</a>.', htmlspecialchars($url));
-    		exit();
+			
+			if(isset($_POST['text'])) {
+				$txt = $_POST['text'];
+				fwrite($path, $txt);
+				$txt = $_POST['text'];
+				fwrite($path, $txt);
+				fclose($path);
+    			file_put_contents($_POST['path'], $_POST['text']);
+			}
+			echo "<form action='' method='post'><div class='modal fade'>
+  					<div class='modal-dialog'>
+    					<div class='modal-content'>
+     			 			<div class='modal-header'>
+        						<button type='button' class='close' data-dismiss='modal'><span aria-hidden='true'>&times;</span><span class='sr-only'>Close</span></button>
+        						<h4 class='modal-title'>File Editor</h4>
+      						</div>
+      						<div class='modal-body'>
+        						<textarea class='form-control' id='text' name='text'>" . htmlspecialchars($text) . "</textarea>
+      						</div>
+      						<div class='modal-footer'>
+       		 					<button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+        						<button type='button' type='save' id='save' class='btn btn-primary'>Save changes</button>
+      						</div>
+    					</div>
+  					</div>
+				  </div></form>";
 		}
-		$text = file_get_contents($file);
 		echo "<form class='form-signin' action='' method='post'>
 				<input class='form-control' name='path' placeholder='File Path' type='text' />
-				<textarea class='form-control' placeholder='File Text' name='text'>" . htmlspecialchars($text) . "</textarea>
 				<input class='btn btn-lg btn-info btn-block' type='submit' />
-				<input class='btn btn-lg btn-danger btn-block' type='reset' />
 			  </form>";
 	}else{
 		header("index.php");
