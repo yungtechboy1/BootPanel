@@ -2,10 +2,7 @@
 	session_start();
 	ob_start();
 
-	include_once 'api/actions.php';
 	include_once 'assets/includes/header.php';
-	
-	$actions = new actions();
 	
 	if($actions->checkLoggedin() == true){
 		//Show Navigation Bar
