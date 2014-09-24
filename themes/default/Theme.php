@@ -64,8 +64,8 @@
 						echo '<center>
 								<a class="btn btn-lg btn-info">Create New File </a>
 								<a class="btn btn-lg btn-danger">Delete Old File </a>
-								<a class="btn btn-lg btn-success">Upload Files </a>
-								<a class="btn btn-lg btn-primary">Download Files </a>
+								<a class="btn btn-lg btn-success">Edit Files </a>
+								<a class="btn btn-lg btn-primary">Upload/Download Files </a>
 							  </center>';
 					Panel::endPanel();
 					Panel::startPanel("info", "Web Mail", Glyphicon::envelope());
@@ -105,13 +105,13 @@
 					Panel::endPanel();
 					Panel::startPanel("danger", "Statistics", Glyphicon::stats());
 						Panel::loadStats();
-						echo '<center><u><h3>Hard Drive Usage</h3></u>';
+						echo '<center><h3>' . Design::useGlyphicon(Glyphicon::hdd()) . '  <u>Hard Drive Usage</h3></u>';
 						Design::addProgressBar("info", Disk::getHDD(), false);
-						echo '</br><u><h3>Bandwidth Usage</h3></u>';
+						echo '</br><h3>' . Design::useGlyphicon(Glyphicon::cloud()) . '  <u>Bandwidth Usage</h3></u>';
 						Design::addProgressBar("warning", Disk::getBandwidth(), true);
-						echo '</br><u><h3>MySQL Databases</h3></u>';
+						echo '</br><h3>' . Design::useGlyphicon(Glyphicon::floppydisk()) . '  <u>MySQL Databases</h3></u>';
 						Design::addProgressBar("success", Disk::getMySQL(), false);
-						echo '</br><u><h3>Webmail Accounts</h3></u></center>';
+						echo '</br><h3>' .Design::useGlyphicon(Glyphicon::envelope()) . '  <u>Webmail Accounts</h3></u></center>';
 						Design::addProgressBar("warning", Disk::getWebmail(), false);
 					Panel::endPanel();
 				Panel::endLayout();

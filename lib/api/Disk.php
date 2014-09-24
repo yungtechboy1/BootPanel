@@ -11,14 +11,14 @@
 		}
 		
 		public static function getBandwidth() {
-			return 35;
+			return ((round(1 / 20, 2) * 100));
 		}
 		
 		public static function getMySQL() {
-			return 60;
+			return ((round(3 / 5, 2) * 100));
 		}
 		
 		public static function getWebmail() {
-			return 50;
+			return ((round(13 / 15, 2) * 100));
 		}
 	}

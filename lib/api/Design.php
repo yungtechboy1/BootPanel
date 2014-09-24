@@ -55,7 +55,7 @@
 		 * @param Content $badgeContent
 		 */
 		public static function createBadge($badgeContent) {
-			echo '<span class="badge">' . $number . '</span>';
+			return '<span class="badge">' . $number . '</span>';
 		}
 		
 		/**
@@ -123,7 +123,7 @@
 		 * @param Glyphicon $glyphicon
 		 */
 		public static function useGlyphicon($glyphicon) {
-			echo '<span class="' . $glyphicon . '"></span>';
+			return '<span class="' . $glyphicon . '"></span>';
 		}
 		
 		/**
