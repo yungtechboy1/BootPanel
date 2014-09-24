@@ -6,8 +6,8 @@
 		 * @param Root Directory $dir
 		 * @return Percentage Left
 		 */
-		public static function getHDD($dir) {
-			return (100 - (round(disk_free_space($dir) / disk_total_space($dir), 2) * 100));
+		public static function getHDD() {
+			return (100 - (round(disk_free_space("/") / disk_total_space("/"), 2) * 100));
 		}
 		
 		public static function getBandwidth() {

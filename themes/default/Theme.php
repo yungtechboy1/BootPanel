@@ -106,7 +106,7 @@
 					Panel::startPanel("danger", "Statistics", Glyphicon::stats());
 						Panel::loadStats();
 						echo '<center><u><h3>Hard Drive Usage</h3></u>';
-						Design::addProgressBar("info", Disk::getHDD("C:"), false);
+						Design::addProgressBar("info", Disk::getHDD(), false);
 						echo '</br><u><h3>Bandwidth Usage</h3></u>';
 						Design::addProgressBar("warning", Disk::getBandwidth(), true);
 						echo '</br><u><h3>MySQL Databases</h3></u>';
