@@ -72,7 +72,7 @@
 							<p>' . $text . '</p>
 					  </div>';
 			} else {
-				echo '<center><p class="alert alert-danger">Unable to find a valid addCallout type!</p></center>';
+				echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 			}
 		}
 		
@@ -94,10 +94,10 @@
 								</div>
 							  </div>';	
 					} else {
-						echo '<center><p class="alert alert-warning">The second parameter of addProgressBar expects to be between 0 and 100!</p></center>';
+						echo '<center><p class="alert alert-danger">Unable to load due to percentage error!</p></center>';
 					}
 				} else {
-					echo '<center><p class="alert alert-danger">Unable to find a valid addProgressBar type!</p></center>';
+					echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 				}
 			} else {
 				if(strtolower($type) == "primary" || strtolower($type) == "info" || strtolower($type) == "success" || strtolower($type) == "warning" || strtolower($type) == "danger") {
@@ -109,10 +109,10 @@
 								</div>
 							  </div>';
 					} else {
-						echo '<center><p class="alert alert-warning">The second parameter of addProgressBar expects to be between 0 and 100!</p></center>';
+						echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 					}
 				} else {
-					echo '<center><p class="alert alert-danger">Unable to find a valid addProgressBar type!</p></center>';
+					echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 				}
 			}
 		}

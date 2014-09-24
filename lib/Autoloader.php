@@ -5,7 +5,8 @@
 	require 'lib/api/Panel.php';
 	require 'lib/api/Plugin.php';
 	require 'lib/api/Glyphicon.php';
-	require 'lib/api/Disk.php';
+	require 'lib/api/Limit.php';
+	require 'lib/api/Stats.php';
 	require 'themes/' . $BootPanel_Theme . '/Theme.php';
 	
 	foreach(glob("plugins/*.php") as $plugin) {

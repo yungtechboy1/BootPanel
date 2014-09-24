@@ -38,7 +38,7 @@
 			if(strtolower($type) == "default" || strtolower($type) == "primary" || strtolower($type) == "info" || strtolower($type) == "success" || strtolower($type) == "warning" || strtolower($type) == "danger"){
 				echo '<center><p class="alert alert-' . $type . '">' . $text . '</p></center>';
 			} else {
-				echo '<center><h1 class="alert alert-danger">Unable to find a valid addAlert type!</h1></center>';
+				echo '<center><h1 class="alert alert-danger">Unable to load due to sytnax error!</h1></center>';
 			}
 		}
 		
@@ -58,7 +58,7 @@
 							</div>
 						  <div class="panel-body">';
 				} else {
-					echo '<center><p class="alert alert-danger">Unable to find a valid startPanel type!</p></center>';
+					echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 				}
 			} else {
 				if(strtolower($type) == "default" || strtolower($type) == "primary" || strtolower($type) == "success" || strtolower($type) == "info" || strtolower($type) == "warning" || strtolower($type) == "danger") {
@@ -68,7 +68,7 @@
 							</div>
 						  <div class="panel-body">';
 				} else {
-					echo '<center><p class="alert alert-danger">Unable to find a valid startPanel type!</p></center>';
+					echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 				}
 			}
 		}
@@ -86,38 +86,54 @@
 			if(strtolower($type) == "default" || strtolower($type) == "primary" || strtolower($type) == "success" || strtolower($type) == "info" || strtolower($type) == "warning" || strtolower($type) == "danger") {
 				echo '  <a class="btn btn-' . $type . ' btn-lg" data-toggle="modal" data-target="#' . $modal . '">' . $text . '</a>  ';
 			} else {
-				echo '<center><p class="alert alert-danger">Unable to find valid createButton type!</p></center>';
+				echo '<center><p class="alert alert-danger">Unable to load due to sytnax error!</p></center>';
 			}
+		}
+		
+		public static function startModal($label, $title) {
+			echo '<div class="modal fade" id="' . $label . '" tabindex="-1" role="dialog" aria-labelledby="' . $label . 'Label" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="' . $label . 'Label">' . $title . '</h4>
+							</div>
+							<div class="modal-body">';
+		}
+		
+		public static function endModal() {
+			echo '			</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>';
 		}
 		
 		/**
 		 * Loads the File manager options
 		 */
 		public static function loadFileMgr() {
-			echo '<!-- Modal -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-								</div>
-								<div class="modal-body">
-									TEXT
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Save changes</button>
-								</div>
-							</div>
-						</div>
-					</div>';
+			Panel::startModal("createFile", "File Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("deleteFile", "File Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("editFiles", "File Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("uploadDownloadFiles", "File Management");
+				echo '...';
+			Panel::endModal();
 		}
 		
 		/**
 		 * Loads the Mail Manager options
 		 */
 		public static function loadMailMgr() {
+			
 		}
 		
 		/**
@@ -161,9 +177,5 @@
 		public static function endLayout() {
 			echo '</div>
 				  </br>';
-		}
-		
-		public static function createStatsPopup() {
-			echo '';
 		}
 	}
