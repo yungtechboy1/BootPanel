@@ -126,6 +126,14 @@
 			return '<span class="' . $glyphicon . '"></span>';
 		}
 		
+		public static function startCenter() {
+			echo '<center>';
+		}
+		
+		public static function endCenter() {
+			echo '</center>';
+		}
+		
 		/**
 		 * Ends the body tag
 		 */

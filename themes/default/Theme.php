@@ -60,59 +60,61 @@
 			Design::startBody();
 				Panel::startLayout();
 					Panel::startPanel("warning", "File Manager", Glyphicon::openfolder());
+						Design::startCenter();
+							Panel::createButton("info", "createFile", "Create New File");
+							Panel::createButton("danger", "deleteFile", "Delete Files");
+							Panel::createButton("success", "editFiles", "Edit Files");
+							Panel::createButton("primary", "uploadDownloadFiles", "Upload/Download Files");
+						Design::endCenter();
 						Panel::loadFileMgr();
-						echo '<center>
-								<a class="btn btn-lg btn-info">Create New File </a>
-								<a class="btn btn-lg btn-danger">Delete Old File </a>
-								<a class="btn btn-lg btn-success">Edit Files </a>
-								<a class="btn btn-lg btn-primary">Upload/Download Files </a>
-							  </center>';
 					Panel::endPanel();
 					Panel::startPanel("info", "Web Mail", Glyphicon::envelope());
+						Design::startCenter();
+							Panel::createButton("danger", "manageWebmail", "Manage Webmail Accounts");
+							Panel::createButton("success", "readWebmail", "Read Webmail");
+							Panel::createButton("primary", "sendMassEmail", "Send Mass Email");
+						Design::endCenter();
 						Panel::loadMailMgr();
-						echo '<center>
-								<a class="btn btn-lg btn-danger">Manage Webmail Accounts </a>
-								<a class="btn btn-lg btn-success">Read Webmail </a>
-								<a class="btn btn-lg btn-primary">Send Mass Email </a>
-							  </center>';
 					Panel::endPanel();
 					Panel::startPanel("primary", "MySQL Database", Glyphicon::hdd());
+						Design::startCenter();
+							Panel::createButton("success", "newDatabase", "Create New Database");
+							Panel::createButton("info", "manageDatabases", "Manage Databases");
+							Panel::createButton("warning", "backupDatabase", "Backup Database");
+						Design::endCenter();
 						Panel::loadSQLMgr();
-						echo '<center>
-								<a class="btn btn-lg btn-success">Create New Database </a>
-								<a class="btn btn-lg btn-info">Manage Databases </a>
-								<a class="btn btn-lg btn-warning">Backup Database </a>
-							  </center>';
 					Panel::endPanel();
 					Panel::startPanel("success", "BootPanel Account Management", Glyphicon::user());
+						Design::startCenter();
+							Panel::createButton("primary", "addUsers", "Add Users");
+							Panel::createButton("danger", "removeUsers", "Remove Users");
+						Design::endCenter();
 						Panel::loadAccountMgr();
-						echo '<center>
-							  	<a class="btn btn-lg btn-primary">Add Users </a>
-								<a class="btn btn-lg btn-danger">Remove Users </a>
-							  </center>';
 					Panel::endPanel();
 					Panel::startPanel("default", "Domain Management", Glyphicon::globe());
+						Design::startCenter();
+							Panel::createButton("success", "subdomains", "Subdomains");
+							Panel::createButton("warning", "redirects", "Redirects");
+							Panel::createButton("danger", "bannedips", "Banned IPs");
+						Design::endCenter();
 						Panel::loadDomainMgr();
-						echo '<center>
-								<a align="left" class="btn btn-lg btn-success">Subdomains </a>  
-							  	<a align="center" class="btn btn-lg btn-warning">Redirects </a>  
-							  	<a align="right" class="btn btn-lg btn-danger">Banned IPs </a>
-							  </center>';
 					Panel::endPanel();
 					Panel::startPanel("info", "Plugin Management", Glyphicon::flash());
+						Design::startCenter();
+							Panel::createButton("primary", "installPlugin", "Install New Plugin");
+						Design::endCenter();
 						Panel::loadPluginMgr();
-						echo '<center><a class="btn btn-lg btn-primary">Install New Plugin </a></center>';
 					Panel::endPanel();
 					Panel::startPanel("danger", "Statistics", Glyphicon::stats());
 						Panel::loadStats();
 						echo '<center><h3>' . Design::useGlyphicon(Glyphicon::hdd()) . '  <u>Hard Drive Usage</h3></u>';
-						Design::addProgressBar("info", Disk::getHDD(), false);
+							Design::addProgressBar("info", Disk::getHDD(), false);
 						echo '</br><h3>' . Design::useGlyphicon(Glyphicon::cloud()) . '  <u>Bandwidth Usage</h3></u>';
-						Design::addProgressBar("warning", Disk::getBandwidth(), true);
+							Design::addProgressBar("warning", Disk::getBandwidth(), true);
 						echo '</br><h3>' . Design::useGlyphicon(Glyphicon::floppydisk()) . '  <u>MySQL Databases</h3></u>';
-						Design::addProgressBar("success", Disk::getMySQL(), false);
+							Design::addProgressBar("success", Disk::getMySQL(), false);
 						echo '</br><h3>' .Design::useGlyphicon(Glyphicon::envelope()) . '  <u>Webmail Accounts</h3></u></center>';
-						Design::addProgressBar("warning", Disk::getWebmail(), false);
+							Design::addProgressBar("warning", Disk::getWebmail(), false);
 					Panel::endPanel();
 				Panel::endLayout();
 			Design::endBody();
