@@ -3,7 +3,6 @@
 		/**
 		 * Get the percentage of remaining HDD space
 		 * 
-		 * @param Root Directory $dir
 		 * @return Percentage Left
 		 */
 		public static function getHDD() {
