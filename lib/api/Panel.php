@@ -63,6 +63,14 @@
 				  </br>';
 		}
 		
+		/**
+		 * Creates a modal open link
+		 * 
+		 * @param Type $type
+		 * @param Target $modal
+		 * @param Text $text
+		 * @param Boolean $center
+		 */
 		public static function createButton($type, $modal, $text, $center = false) {
 			if(strtolower($type) == "default" || strtolower($type) == "primary" || strtolower($type) == "success" || strtolower($type) == "info" || strtolower($type) == "warning" || strtolower($type) == "danger") {
 				echo '  <a class="btn btn-' . $type . ' btn-lg" data-toggle="modal" data-target="#' . $modal . '">' . $text . '</a>  ';
@@ -71,6 +79,12 @@
 			}
 		}
 		
+		/**
+		 * Starts a pop up modal
+		 * 
+		 * @param Name $label
+		 * @param Title $title
+		 */
 		public static function startModal($label, $title) {
 			echo '<div class="modal fade" id="' . $label . '" tabindex="-1" role="dialog" aria-labelledby="' . $label . 'Label" aria-hidden="true">
 					<div class="modal-dialog">
@@ -141,7 +155,7 @@
 		public static function loadSQLMgr() {
 			Panel::startModal("newDatabase", "MySQL Management");
 				if(Limit::MySQL_Current() < Limit::MySQL_Limit()) {
-					echo '';
+					echo '<center><p class="alert alert-warning">Not Available</p></center>';
 				} else {
 					echo '<center><p class="alert alert-danger">You have reached your MySQL Database Limit!</p></center>';
 				}
