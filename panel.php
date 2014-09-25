@@ -27,6 +27,10 @@ ob_start();
 			echo '<center><p class="alert alert-success">Plugin removed successfully!</p></center>';
 		}
 		
+		if(isset($_GET['db_created']) && empty($_GET['plugin_removed'])) {
+			echo '<center><p class="alert alert-success">Database created successfully!</p></center>';
+		}
+		
 		if($loggedin) {
 			Theme::panel();
 		} else {

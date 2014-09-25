@@ -154,7 +154,15 @@
 		public static function loadSQLMgr() {
 			Panel::startModal("newDatabase", "MySQL Management");
 				if(Limit::MySQL_Current() < Limit::MySQL_Limit()) {
-					echo '<center><p class="alert alert-warning">Not Available</p></center>';
+					echo '<center>
+							<form action="function/create_database.php" method="post">
+								<input type="host" class="form-control" name="host" placeholder="MySQL Host" required></input></br>
+								<input type="user" class="form-control" name="user" placeholder="MySQL User" required></input></br>
+								<input type="pass" class="form-control" name="pass" placeholder="MySQL Password"></input></br>
+								<input type="db" class="form-control" name="db" placeholder="New Database Name" required></input></br>
+								<button type="submit" class="btn btn-lg btn-success" name="submit">Create Database</button>
+							</form>
+						  </center>';
 				} else {
 					echo '<center><p class="alert alert-danger">You have reached your MySQL Database Limit!</p></center>';
 				}
