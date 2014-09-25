@@ -23,6 +23,10 @@ ob_start();
 			echo '<center><p class="alert alert-success">Plugin installed successfully!</p></center>';
 		}
 		
+		if(isset($_GET['plugin_removed']) && empty($_GET['plugin_removed'])) {
+			echo '<center><p class="alert alert-success">Plugin removed successfully!</p></center>';
+		}
+		
 		if($loggedin) {
 			Theme::panel();
 		} else {

@@ -207,7 +207,9 @@
 					  </center>';
 			Panel::endModal();
 			Panel::startModal("removePlugin", "Plugin Management");
-				echo '<center><p class="alert alert-warning">Not Available</p></center>';
+				foreach(glob("plugins/*.php") as $plugin) {
+					echo '<center><a class="btn btn-primary" href="function/remove_plugin.php?plugin='. $plugin .'">' . str_replace("plugins/", "", str_replace(".php", "", $plugin)) . '</a></center></br>';
+				}
 			Panel::endModal();
 		}
 		
