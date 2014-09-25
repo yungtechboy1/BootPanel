@@ -92,14 +92,6 @@
 				</div>';
 		}
 		
-		public static function deleteFile($file) {
-			if(is_dir($file)) {
-				@rmdir($file);
-			} else {
-				unlink($file);
-			}
-		}
-		
 		/**
 		 * Loads the File manager options
 		 */
@@ -115,7 +107,9 @@
 			Panel::endModal();
 			Panel::startModal("deleteFile", "File Management");
 				foreach(glob("../*") as $file) {
-					echo '<center><a class="btn btn-primary" onClick="' . Panel::deleteFile($file) . '">' . $file . '</a></center></br>';
+					if($file == "../BootPanel") {} else {
+						echo '<center><a class="btn btn-primary" href="function/delete_file.php?file='. $file .'">' . $file . '</a></center></br>';
+					}
 				}
 			Panel::endModal();
 			Panel::startModal("editFiles", "File Management");
