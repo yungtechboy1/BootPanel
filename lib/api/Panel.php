@@ -121,9 +121,8 @@
 			Panel::endModal();
 			Panel::startModal("deleteFile", "File Management");
 				foreach(glob("../*") as $file) {
-					if($file == "../BootPanel") {} else {
+					if(!($file == "../BootPanel"))
 						echo '<center><a class="btn btn-primary" href="function/delete_file.php?file='. $file .'">' . str_replace("../", "", $file) . '</a></center></br>';
-					}
 				}
 			Panel::endModal();
 			Panel::startModal("editFiles", "File Management");
