@@ -42,10 +42,10 @@
 		public static function signin() {
 			Design::startBody();
 				Panel::startLayout();
-					echo '<form class="form-signin" role="form" action="' . Login::checkLogin($MySQL_HOST, $MySQL_USER, $MySQL_PASS, $MySQL_DB) . '">
+					echo '<form class="form-signin" role="form" action="" method="post">
 							<center><h2 class="form-signin-heading">Please Sign-In</h2></center>
-							<input type="username" class="form-control" placeholder="Username" required autofocus>
-							<input type="password" class="form-control" placeholder="Password" required>
+							<input type="username" name="username" class="form-control" placeholder="Username" required autofocus>
+							<input type="password" name="password" class="form-control" placeholder="Password" required>
 							</br>
 							<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
 						  </form>';

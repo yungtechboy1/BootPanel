@@ -17,6 +17,25 @@
 		}
 		
 		/**
+		 * Sets the panels favicon from $file
+		 * 
+		 * @param Theme $theme
+		 * @param File $file
+		 */
+		public static function setIconFromFile($theme, $file) {
+			echo '<link rel="icon" type="image/x-icon" href="themes/'. $theme . '/' . $file . '">';
+		}
+		
+		/**
+		 * Sets the panels favicon from $url
+		 * 
+		 * @param URL $url
+		 */
+		public static function setIconFromURL($url) {
+			echo '<link rel="icon" type="image/x-icon" href="'. $url . '">';
+		}
+		
+		/**
 		 * Loads a CSS script from the $theme directory
 		 * 
 		 * @param Theme $theme

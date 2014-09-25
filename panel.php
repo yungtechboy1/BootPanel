@@ -3,6 +3,7 @@ session_start();
 ob_start();
 	require 'lib/assets/includes/header.php';
 	$loggedin = true;
+	
 		if(isset($_GET['file_created']) && empty($_GET['file_created'])) {
 			echo '<center><p class="alert alert-success">File created successfully!</p></center>';
 		}
