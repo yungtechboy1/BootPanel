@@ -176,7 +176,12 @@
 		 */
 		public static function loadPluginMgr() {
 			Panel::startModal("installPlugin", "Plugin Management");
-				echo '...';
+				echo '<center>
+						<form action="function/install_plugin.php" method="post" enctype="multipart/form-data">
+							<input class="btn btn-lg btn-default" type="file" name="file" id="file"><br>
+							<input class="btn btn-lg btn-primary" type="submit" name="submit" value="Submit">
+					  	</form>
+					  </center>';
 			Panel::endModal();
 			Panel::startModal("removePlugin", "Plugin Management");
 				echo '...';
