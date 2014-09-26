@@ -112,9 +112,12 @@
 		public static function loadFileMgr() {
 			Panel::startModal("createFile", "File Management");
 				echo '<center>
-						<form action="function/create_file.php" method="post">
-							<input type="text" class="form-control" name="filename" placeholder="File Name" required></input></br>
-							<textarea type="text" class="form-control" name="content" style="resize: vertical; width: 567px; height: 320px;" required></textarea></br>
+						<form class="form-inline" action="function/create_file.php" method="post">
+							<div class="form-group">
+								<input type="text" class="form-control" name="location" placeholder="Location (Blank for Root)"></input>
+								<input type="text" class="form-control" name="filename" placeholder="File Name" required></input>
+							</div></br></br>
+							<textarea type="text" class="form-control" name="content" style="resize: vertical; width: 567px; height: 320px;" required></textarea></br></br>
 							<button type="submit" class="btn btn-lg btn-success" name="submit">Save ' . Design::useGlyphicon(Glyphicon::floppysave()) . '</button>
 						</form>
 					  </center>';
