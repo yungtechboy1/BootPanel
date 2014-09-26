@@ -133,7 +133,7 @@
 			Panel::endModal();
 			Panel::startModal("uploadFiles", "Upload Files");
 				echo '<ul class="nav nav-tabs" role="tablist">
-						<li class="active"><a data-toggle="modal" data-target="#uploadFiles" data-dismiss="modal">Upload</a></li>
+						<li class="active"><a>Upload</a></li>
 						<li><a data-toggle="modal" data-target="#downloadFiles" data-dismiss="modal">Download</a></li>
 					  </ul></br>
 					  <center>
@@ -147,7 +147,7 @@
 			Panel::startModal("downloadFiles", "Download Files");
 				echo '<ul class="nav nav-tabs" role="tablist">
 						<li><a data-toggle="modal" data-target="#uploadFiles" data-dismiss="modal">Upload</a></li>
-						<li class="active"><a data-toggle="modal" data-target="#downloadFiles" data-dismiss="modal">Download</a></li>
+						<li class="active"><a>Download</a></li>
 					  </ul></br>';
 				foreach (glob("../*") as $file) {
 					if($file != "../BootPanel") {
