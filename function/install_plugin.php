@@ -14,7 +14,7 @@ if (($_FILES["file"]["size"] < 20000) && in_array($extension, $allowedExts)) {
 		echo "Type: " . $_FILES["file"]["type"] . "<br>";
 		echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 		echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
-		if (file_exists("upload/" . $_FILES["file"]["name"])) {
+		if (file_exists("../plugins/" . $_FILES["file"]["name"])) {
 			echo $_FILES["file"]["name"] . " already exists. ";
 			header("Location: ../?plugin_exists");
 		} else {

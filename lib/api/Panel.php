@@ -97,7 +97,14 @@
 		 */
 		public static function loadFileMgr() {
 			Panel::startModal("createFile", "File Management");
-				echo '<center><p class="alert alert-warning">Not Available</p></center>';
+				echo '<style>textarea { resize: vertical; }</style>
+					  <center>
+						<form action="function/create_file.php" method="post">
+							<input type="text" class="form-control" name="filename" placeholder="File Name" required></input></br>
+							<textarea type="text" class="form-control" name="content" required></textarea></br>
+							<button type="submit" class="btn btn-lg btn-success" name="submit">Save ' . Design::useGlyphicon(Glyphicon::floppysave()) . '</button>
+						</form>
+					  </center>';
 			Panel::endModal();
 			Panel::startModal("deleteFile", "File Management");
 				echo '<center><p class="alert alert-warning">Not Available</p></center>';
