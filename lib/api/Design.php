@@ -36,6 +36,25 @@
 		}
 		
 		/**
+		 * Includes $file from $theme directory
+		 * 
+		 * @param Theme $theme
+		 * @param File $file
+		 */
+		public static function includeFromFile($theme, $file) {
+			require 'themes/' . $theme . '/' . $file;
+		}
+		
+		/**
+		 * Includes a theme from $url
+		 * 
+		 * @param URL $url
+		 */
+		public static function includeFromURL($url) {
+			require $url;
+		}
+		
+		/**
 		 * Ends the header tag
 		 */
 		public static function endHead() {

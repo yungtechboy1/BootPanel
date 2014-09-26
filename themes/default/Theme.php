@@ -30,6 +30,7 @@
 		public static function head() {
 			Design::startHead();
 				Design::setTitle("BootPanel");
+				Design::includeFromURL("conf/config.php");
 				Design::loadCSSFromFile("default", "assets/bootstrap/css/bootstrap.css");
 			Design::endHead();
 		}
@@ -41,7 +42,7 @@
 		public static function signin() {
 			Design::startBody();
 				Panel::startLayout();
-					echo '<form class="form-signin" role="form">
+					echo '<form class="form-signin" role="form" action="' . Login::checkLogin($MySQL_HOST, $MySQL_USER, $MySQL_PASS, $MySQL_DB) . '">
 							<center><h2 class="form-signin-heading">Please Sign-In</h2></center>
 							<input type="username" class="form-control" placeholder="Username" required autofocus>
 							<input type="password" class="form-control" placeholder="Password" required>
@@ -107,7 +108,6 @@
 						Panel::loadPluginMgr();
 					Panel::endPanel();
 					Panel::startPanel("danger", "Statistics", Glyphicon::stats());
-						Panel::loadStats();
 						echo '<center><h3>' . Design::useGlyphicon(Glyphicon::hdd()) . '  <u>Hard Drive Usage</h3></u>';
 							Design::addProgressBar("info", Stats::getHDD(), false);
 						echo '</br><h3>' . Design::useGlyphicon(Glyphicon::transfer()) . '  <u>Bandwidth Usage</h3></u>';

@@ -10,25 +10,6 @@
 		}
 		
 		/**
-		 * Includes $file from $theme directory
-		 * 
-		 * @param Theme $theme
-		 * @param File $file
-		 */
-		public static function includeFromFile($theme, $file) {
-			require 'themes/' . $theme . '/' . $file;
-		}
-		
-		/**
-		 * Includes a theme from $url
-		 * 
-		 * @param URL $url
-		 */
-		public static function includeFromURL($url) {
-			require $url;
-		}
-		
-		/**
 		 * Adds an Alert to the page
 		 * 
 		 * @param Type $type
@@ -133,42 +114,73 @@
 		 * Loads the Mail Manager options
 		 */
 		public static function loadMailMgr() {
-			
+			Panel::startModal("manageWebmail", "Webmail");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("readWebmail", "Webmail");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("sendMassEmail", "Mess Email");
+				echo '';
+			Panel::endModal();
 		}
 		
 		/**
 		 * Loads the MySQL Manager options
 		 */
 		public static function loadSQLMgr() {
-			
-		}
-		
-		/**
-		 * Loads the "view statistics" button
-		 */
-		public static function loadStats() {
-			
+			Panel::startModal("newDatabase", "MySQL Management");
+				if(Limit::MySQL_Current() < Limit::MySQL_Limit()) {
+					echo '';
+				} else {
+					echo '<center><p class="alert alert-danger">You have reached your MySQL Database Limit!</p></center>';
+				}
+			Panel::endModal();
+			Panel::startModal("manageDatabase", "MySQL Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("backupDatabase", "MySQL Management");
+				echo '...';
+			Panel::endModal();
 		}
 		
 		/**
 		 * Loads the Account Management options
 		 */
 		public static function loadAccountMgr() {
-			
+			Panel::startModal("addUsers", "Account Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("removeUsers", "Account Management");
+				echo '...';
+			Panel::endModal();
 		}
 		
 		/**
 		 * Loads the Domain Management options
 		 */
 		public static function loadDomainMgr() {
-			
+			Panel::startModal("subdomains", "Domain Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("redirects", "Domain Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("bannedips", "Domain Management");
+				echo '...';
+			Panel::endModal();
 		}
 		
 		/**
 		 * Loads the Plugin Management options
 		 */
 		public static function loadPluginMgr() {
-			
+			Panel::startModal("installPlugin", "Plugin Management");
+				echo '...';
+			Panel::endModal();
+			Panel::startModal("removePlugin", "Plugin Management");
+				echo '...';
+			Panel::endModal();
 		}
 		
 		/**
