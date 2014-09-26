@@ -136,7 +136,7 @@
 					echo '<center><p class="alert alert-danger">You have reached your MySQL Database Limit!</p></center>';
 				}
 			Panel::endModal();
-			Panel::startModal("manageDatabase", "MySQL Management");
+			Panel::startModal("manageDatabases", "MySQL Management");
 				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("backupDatabase", "MySQL Management");
