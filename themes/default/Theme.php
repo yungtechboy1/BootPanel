@@ -42,14 +42,17 @@
 		public static function signin() {
 			Design::startBody();
 				Panel::startLayout();
-					echo '<form class="form-signin" role="form" action="" method="post">
-							<center><h2 class="form-signin-heading">Please Sign-In</h2></center>
-							<input type="username" name="username" class="form-control" placeholder="Username" required autofocus>
-							<input type="password" name="password" class="form-control" placeholder="Password" required>
+					/*echo '<form class="form-signin" name="login" role="form" method="post">
+							<center><h2 class="form-signin-heading">Please Enter Your Combination</h2></center>
+							<input type="password" name="combination" class="form-control" placeholder="Combination">
 							</br>
-							<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-						  </form>';
-				Panel::endLayout();
+							<center>
+								<button onClick="addText(1);" name="combo" class="btn btn-lg btn-primary">1</button>
+							</center>
+							</br>
+							<button align="right" class="btn btn-lg btn-success" type="submit">Done</button>
+						  </form>';*/
+				Design::includeFromFile("default", "js/password.js");
 			Design::endBody();
 		}
 		
@@ -65,7 +68,7 @@
 							Panel::createButton("info", "createFile", "Create New File");
 							Panel::createButton("danger", "deleteFile", "Delete Files");
 							Panel::createButton("success", "editFiles", "Edit Files");
-							Panel::createButton("primary", "uploadDownloadFiles", "Upload/Download Files");
+							Panel::createButton("primary", "uploadFiles", "Upload/Download Files");
 						Design::endCenter();
 						Panel::loadFileMgr();
 					Panel::endPanel();

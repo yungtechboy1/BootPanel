@@ -128,8 +128,29 @@
 			Panel::startModal("editFiles", "File Management");
 				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
-			Panel::startModal("uploadDownloadFiles", "File Management");
-				echo '<center><p class="alert alert-warning">Not Available</p></center>';
+			Panel::startModal("uploadFiles", "Upload Files");
+				echo '<ul class="nav nav-tabs" role="tablist">
+						<li class="active"><a data-toggle="modal" data-target="#uploadFiles" data-dismiss="modal">Upload</a></li>
+						<li><a data-toggle="modal" data-target="#downloadFiles" data-dismiss="modal">Download</a></li>
+					  </ul></br>
+					  <center>
+						<form action="function/upload_file.php" method="post" enctype="multipart/form-data">
+							<input class="btn btn-lg btn-default" type="file" name="file" id="file"><br>
+							<input type="checkbox" name="unzip" checked>  Unzip if .ZIP file</input></br></br>
+							<input class="btn btn-lg btn-primary" type="submit" name="submit" value="Upload">
+					  	</form>
+					  </center>';
+			Panel::endModal();
+			Panel::startModal("downloadFiles", "Download Files");
+				echo '<ul class="nav nav-tabs" role="tablist">
+						<li><a data-toggle="modal" data-target="#uploadFiles" data-dismiss="modal">Upload</a></li>
+						<li class="active"><a data-toggle="modal" data-target="#downloadFiles" data-dismiss="modal">Download</a></li>
+					  </ul></br>';
+				foreach (glob("../*") as $file) {
+					if($file != "../BootPanel") {
+						echo '<center><a class="btn btn-primary" href="'. $file .'" download> '. str_replace("../", "", $file) .' </a></center></br>';
+					}
+				}
 			Panel::endModal();
 		}
 		
@@ -210,7 +231,7 @@
 				echo '<center>
 						<form action="function/install_plugin.php" method="post" enctype="multipart/form-data">
 							<input class="btn btn-lg btn-default" type="file" name="file" id="file"><br>
-							<input class="btn btn-lg btn-primary" type="submit" name="submit" value="Submit">
+							<input class="btn btn-lg btn-primary" type="submit" name="submit" value="Install">
 					  	</form>
 					  </center>';
 			Panel::endModal();
