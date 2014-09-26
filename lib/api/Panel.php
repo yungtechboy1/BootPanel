@@ -97,16 +97,16 @@
 		 */
 		public static function loadFileMgr() {
 			Panel::startModal("createFile", "File Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("deleteFile", "File Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("editFiles", "File Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("uploadDownloadFiles", "File Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
 		
@@ -115,13 +115,13 @@
 		 */
 		public static function loadMailMgr() {
 			Panel::startModal("manageWebmail", "Webmail");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("readWebmail", "Webmail");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("sendMassEmail", "Mess Email");
-				echo '';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
 		
@@ -137,10 +137,10 @@
 				}
 			Panel::endModal();
 			Panel::startModal("manageDatabase", "MySQL Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("backupDatabase", "MySQL Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
 		
@@ -149,10 +149,10 @@
 		 */
 		public static function loadAccountMgr() {
 			Panel::startModal("addUsers", "Account Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("removeUsers", "Account Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
 		
@@ -161,13 +161,13 @@
 		 */
 		public static function loadDomainMgr() {
 			Panel::startModal("subdomains", "Domain Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("redirects", "Domain Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 			Panel::startModal("bannedips", "Domain Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
 		
@@ -184,7 +184,7 @@
 					  </center>';
 			Panel::endModal();
 			Panel::startModal("removePlugin", "Plugin Management");
-				echo '...';
+				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
 		
