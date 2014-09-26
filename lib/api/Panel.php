@@ -120,7 +120,7 @@
 			Panel::startModal("readWebmail", "Webmail");
 				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
-			Panel::startModal("sendMassEmail", "Mess Email");
+			Panel::startModal("sendMassEmail", "Mass Email");
 				echo '<center><p class="alert alert-warning">Not Available</p></center>';
 			Panel::endModal();
 		}
