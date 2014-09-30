@@ -9,9 +9,3 @@
 	require 'lib/api/Limit.php';
 	require 'lib/api/Stats.php';
 	require 'themes/' . $BootPanel_Theme . '/Theme.php';
-	
-	foreach(glob("plugins/*.php") as $plugin) {
-		require $plugin;
-		$class = str_replace("plugins/", "", str_replace(".php", "", $plugin));
-		$class::load();
-	}

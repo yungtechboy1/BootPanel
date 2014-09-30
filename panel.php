@@ -61,5 +61,11 @@ ob_start();
 		} else {
 			Theme::login();
 		}
+		
+		foreach(glob("plugins/*.php") as $plugin) {
+			require $plugin;
+			$class = str_replace("plugins/", "", str_replace(".php", "", $plugin));
+			$class::load();
+		}
 	
 	require 'lib/assets/includes/footer.php';
