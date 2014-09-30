@@ -12,4 +12,6 @@
 	
 	foreach(glob("plugins/*.php") as $plugin) {
 		require $plugin;
+		$class = str_replace("plugins/", "", str_replace(".php", "", $plugin));
+		$class::load();
 	}
