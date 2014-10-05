@@ -504,7 +504,7 @@
 			return "glyphicon glyphicon-certificate";
 		}
 		
-		public static function thimbsup() {
+		public static function thumbsup() {
 			return "glyphicon glyphicon-thumbs-up";
 		}
 		
