@@ -2,7 +2,6 @@
 session_start();
 ob_start();
 	require 'lib/assets/includes/header.php';
-	require 'lib/assets/includes/messages.php';
 	$combination = "0000"; //DO NOT CHANGE THIS!!!
 		
 		foreach(glob("plugins/*.php") as $plugin) {
