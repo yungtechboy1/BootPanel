@@ -4,7 +4,6 @@
 
 	if(isset($_GET['install']) && empty($_GET['install']))
 		copy("http://BootPanel.net/download/file/BootPanel.phar", "./") && header("Location: ./");
-		
 	if(file_exists("./BootPanel.phar"))
 		require 'phar://BootPanel.phar/src/bootpanel/BootPanel.php';
 	else

@@ -1,19 +1,22 @@
 <?php
-	require 'user/Login.php';
 	require 'app/Action.php';
+	require 'app/Error.php';
 
 	if(file_exists("./conf/config.php") && is_dir("./themes") && is_dir("./plugins")) {
 		require './conf/config.php';
 		require './themes/'.$BootPanel_Theme."/Theme.php";
 		
-		if(Login::isLoggedIn())
-			$request = "panel";
-		else
-			$request = "login";
+		Action::createDatabase("BootPanel");
+		
+		foreach(glob("./plugins/*.php") as $plugin) {
+			require $plugin;
+			$plugin_class = str_replace("./plugins/", "", str_replace(".php", "", $plugin));
+			if(class_exists($plugin_class))
+				$plugin_class::onLoad();
+		}
 		
 		Theme::onLoad($request);
 	} else {
-		echo "<center><h1>Installing BootPanel...</h1></center>";
 		@mkdir("./plugins");
 		@mkdir("./conf");
 			copy("phar://./BootPanel.phar/res/conf/config.php", "./conf/config.php");
@@ -31,6 +34,5 @@
 			copy("phar://./BootPanel.phar/res/themes/default/bootstrap/fonts/glyphicons-halflings-regular.woff", "./themes/default/bootstrap/fonts/glyphicons-halflings-regular.woff");
 			copy("phar://./BootPanel.phar/res/themes/default/bootstrap/js/bootstrap.js", "./themes/default/bootstrap/js/bootstrap.js");
 			copy("phar://./BootPanel.phar/res/themes/default/bootstrap/js/bootstrap.min.js", "./themes/default/bootstrap/js/bootstrap.min.js");
-		Action::createDatabase("BootPanel");
 		header("Location: ./");
 	}
