@@ -1,13 +1,15 @@
 <?php
-	########################
-	### BootPanel Config ###
-	########################
-	$BootPanel_Theme = "default";
-	
-	####################
-	### MySQL Config ###
-	####################
-	$MySQL_HOST = "localhost";
-	$MySQL_PORT = 3306;
-	$MySQL_USER = "root";
-	$MySQL_PASS = "";
+	class Config {
+		########################
+		### BootPanel Config ###
+		########################
+		const BootPanel_Theme = "default";
+
+		####################
+		### MySQL Config ###
+		####################
+		const MySQL_HOST = "localhost";
+		const MySQL_PORT = 3306;
+		const MySQL_USER = "root";
+		const MySQL_PASS = "";
+	}

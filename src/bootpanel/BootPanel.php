@@ -1,10 +1,11 @@
 <?php
 	require 'app/Action.php';
 	require 'app/Error.php';
+	require 'app/Auth.php';
 
 	if(file_exists("./conf/config.php") && is_dir("./themes") && is_dir("./plugins")) {
 		require './conf/config.php';
-		require './themes/'.$BootPanel_Theme."/Theme.php";
+		require './themes/'.Config::BootPanel_Theme."/Theme.php";
 		
 		Action::createDatabase("BootPanel");
 		
@@ -14,6 +15,11 @@
 			if(class_exists($plugin_class))
 				$plugin_class::onLoad();
 		}
+		
+		if(Auth::isLoggedIn())
+			$request = "panel";
+		else
+			$request = "login";
 		
 		Theme::onLoad($request);
 	} else {
