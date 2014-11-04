@@ -52,3 +52,4 @@
 				Design::loadJS("assets/bootstrap/js/bootstrap.min.js");
 			Design::endFooter();
 		}
+	}
