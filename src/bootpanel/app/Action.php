@@ -10,8 +10,40 @@
 		 * @param Location $location
 		 * @return boolean
 		 */
-		public static function uploadFile($file, $location = null) {
-			return false;
+		public static function uploadFile($file, $unzip, $location = null) {
+			$zip = new ZipArchive();
+			$allowedExts = array("zip", "Zip", "ZIp", "ZIP", "zIP", "ziP", "zIp", "ZiP");
+			$temp = explode(".", $_FILES["file"]["name"]);
+			$unzip = $_POST['unzip'];
+			$extension = end($temp);
+			if(($_FILES["file"]["size"] < 20000000)) {
+				if($_FILES["file"]["error"] > 0) {
+					return false;
+				} else {
+					if(file_exists("../" . $_FILES["file"]["name"])) {
+						return false;
+					} else {
+						if($unzip) {
+							if(in_array($extension, $allowedExts)) {
+								move_uploaded_file($_FILES["file"]["tmp_name"], "../" . $_FILES["file"]["name"]);
+								$zip->open("../" . $_FILES["file"]["name"]);
+								$zip->extractTo("../");
+								$zip->close();
+								@unlink($_FILES["file"]["name"] . $extension);
+								return true;
+							} else {
+								move_uploaded_file($_FILES["file"]["tmp_name"], "../" . $_FILES["file"]["name"]);
+								return false;
+							}
+						} else {
+							move_uploaded_file($_FILES["file"]["tmp_name"], "../" . $_FILES["file"]["name"]);
+						}
+						return true;
+					}
+				}
+			} else {
+				return false;
+			}
 		}
 		
 		/**
@@ -24,7 +56,10 @@
 		 * @return boolean
 		 */
 		public static function deleteFile($file) {
-			@unlink("./".$file);
+			if(is_dir($file))
+				@rmdir($file);
+			else
+				@unlink("./".$file);
 			if(!file_exists("./".$file))
 				return true;
 			else

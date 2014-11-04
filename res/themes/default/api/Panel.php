@@ -41,9 +41,58 @@
 					<div class="panel-heading">
 						<h3 class="panel-title"><span class="glyphicon glyphicon-file"></span> File Manager</h3>
 					</div>
-					<div class="panel-body">'.
-						'<p class="alert alert-warning">This is under works</p>'
-					.'</div>
+					<div class="panel-body">
+						<center>
+							<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#filedelete">Delete Files</button>
+							<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#fileupload">Upload Files</button>
+						</center>
+					</div>
+				  </div>
+					
+				  <div class="modal fade" id="filedelete" tabindex="-1" role="dialog" aria-labelledby="filedeleteLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="filedeleteLabel"><span class="glyphicon glyphicon-floppy-remove"></span> Delete Files</h4>
+							</div>
+							<div class="modal-body">
+								<center>';
+									foreach (glob("../*") as $file) {
+										if($file != "../BootPanel") {
+											echo '<a class="btn btn-primary" href="./?delete_file=' . $file . '"> '. str_replace("../", "", $file) .' </a></br></br>';
+										}
+									}
+			echo '				<center>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				  </div>
+				
+				  <div class="modal fade" id="fileupload" tabindex="-1" role="dialog" aria-labelledby="fileuploadLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="fileuploadLabel"><span class="glyphicon glyphicon-floppy-open"></span> Upload Files</h4>
+							</div>
+							<div class="modal-body">
+								<center>
+									<form action="./?upload" method="post" enctype="multipart/form-data">
+										<input class="btn btn-lg btn-default" type="file" name="file" id="file"><br>
+										<input type="checkbox" name="unzip" checked>  Unzip if .ZIP file</input></br></br>
+										<input class="btn btn-lg btn-primary" type="submit" name="submit" value="Upload">
+					  				</form>
+								</center>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
 				  </div>';
 		}
 		

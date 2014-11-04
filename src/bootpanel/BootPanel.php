@@ -18,16 +18,7 @@
 				$plugin_class::onLoad();
 		}
 		
-		if(isset($_POST['password']) && !empty($_POST['password'])) {
-			$password = md5($_POST['password']);
-			Auth::login($password);
-		}
-		
-		if(isset($_GET['logout']) && empty($_GET['logout'])) {
-			if(Auth::isLoggedIn())
-				Auth::logout();
-			header("Location: ./");
-		}
+		require 'Process.php';
 		
 		if(Auth::isLoggedIn())
 			$request = "panel";
