@@ -14,7 +14,7 @@
 		}
 		
 		public static function setIcon($icon) {
-			echo '		<link rel="icon" href="./themes/'. Config::BootPanel_Theme .'/'. $file .'">';
+			echo '		<link rel="icon" href="./themes/'. Config::BootPanel_Theme .'/'. $icon .'">';
 		}
 		
 		public static function setTitle($title) {
