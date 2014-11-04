@@ -1,18 +1,13 @@
 <?php
 	class Action {
 		/**
-		 * Uploads a file to the server
+		 * Adds a plugin to the server
 		 * 
-		 * Returns true if file was uploaded
+		 * Returns true if file added
 		 * Returns false if failure
 		 * 
-		 * Errors:
-		 * 	- permission_fail (Not permitted)
-		 * 	- file_exists (File is already existant)
-		 * 	- invalid_dir (Folder couldn't be created or selected)
-		 * 
 		 * @param File $file
-		 * @param String $location
+		 * @param Location $location
 		 * @return boolean
 		 */
 		public static function uploadFile($file, $location = null) {
@@ -20,34 +15,27 @@
 		}
 		
 		/**
-		 * Deletes a file from the server
+		 * Deletes a server file
 		 * 
-		 * Returns true if file was deleted or doesnt exist
+		 * Returns true if deleted
 		 * Returns false if failure
 		 * 
-		 * Errors:
-		 * 	- permission_fail (Not permitted)
-		 * 
-		 * @param String $file
+		 * @param File $file
 		 * @return boolean
 		 */
 		public static function deleteFile($file) {
 			@unlink("./".$file);
-			if(!file_exists("./".$file)) {
+			if(!file_exists("./".$file))
 				return true;
-			} else {
+			else
 				return false;
-			}
 		}
 		
 		/**
-		 * Installs a plugin to BootPanel
+		 * Installs a BootPanel plugin
 		 * 
-		 * Returns true if plugin was installed or already exists
+		 * Returns true if installed
 		 * Returns false if failure
-		 * 
-		 * Errors:
-		 * 	- permission_fail (Not permitted)
 		 * 
 		 * @param File $pluginFile
 		 * @return boolean
@@ -57,31 +45,27 @@
 		}
 		
 		/**
-		 * Uninstalls a BootPanel plugin
+		 * Deletes a BootPanel plugin
 		 * 
-		 * Returns true if plugin doesnt exist or was deleted
+		 * Returns true if deleted
 		 * Returns false if failure
 		 * 
-		 * @param unknown $plugin
+		 * @param Plugin $plugin
 		 * @return boolean
 		 */
 		public static function deletePlugin($plugin) {
 			@unlink("./plugins/".$plugin.".php");
-			if(!file_exists("./plugins/".$plugin.".php")) {
+			if(!file_exists("./plugins/".$plugin.".php"))
 				return true;
-			} else {
+			else
 				return false;
-			}
 		}
 		
 		/**
-		 * Checks for a MySQL Database
+		 * Checks if a database exists
 		 * 
 		 * Returns true if database exists
-		 * Returns false if database does not exist
-		 * 
-		 * Errors:
-		 * 	- mysql_connect (Unable to connect to MySQL)
+		 * Returns false if database could not be found
 		 * 
 		 * @param Database $db
 		 * @return boolean
@@ -90,21 +74,17 @@
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
 				Error::mysql_connect()
 			);
-			if(mysql_select_db($db)) {
+			if(mysql_select_db($db))
 				return true;
-			} else {
+			else
 				return false;
-			}
 		}
 		
 		/**
 		 * Creates a database
 		 * 
-		 * Returns true if database was created or already exists
-		 * Returns false is the database could no be created
-		 * 
-		 * Errors:
-		 * 	- mysql_connect (Unable to connect to MySQL)
+		 * Returns true if database now exists
+		 * Returns false if failure
 		 * 
 		 * @param Database $db
 		 * @return boolean
@@ -119,37 +99,39 @@
 					return true;
 				else
 					return false;
-			}
+			} else
+				return true;
 		}
 		
 		/**
-		 * Drops a database
+		 * Deletes a database
 		 * 
-		 * Returns true if database was deleted or doesnt exist
+		 * Returns true if database no longer exists
 		 * Returns false if failure
 		 * 
-		 * Errors:
-		 * 	- mysql_connect (Unable to connect to MySQL)
-		 * 
-		 * @param unknown $db
+		 * @param Database $db
 		 * @return boolean
 		 */
 		public static function deleteDatabase($db) {
-			return false;
+			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
+				Error::mysql_connect()
+			);
+			if(Action::databaseExists($db)) {
+				mysql_query("DROP DATABASE $db");
+				if(Action::databaseExists($db))
+					return true;
+				else
+					return false;
+			} else
+				return true;
 		}
 		
 		/**
-		 * Executes a MySQL command
+		 * Executes a MySQL Statement/Command
 		 * 
-		 * Returns statement information
+		 * Returns data sent back from MySQL Server
 		 * 
-		 * Errors:
-		 * 	- mysql_connect (Unable to connect to MySQL)
-		 * 
-		 * 
-		 * @param unknown $db
-		 * @param unknown $statement
-		 * @return boolean
+		 * @param Statement $statement
 		 */
 		public static function executeSQL($statement) {
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
