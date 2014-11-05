@@ -17,12 +17,12 @@
 			$unzip = $_POST['unzip'];
 			$extension = end($temp);
 			if(($_FILES["file"]["size"] < 20000000)) {
-				if($_FILES["file"]["error"] > 0) {
+				if($_FILES["file"]["error"] > 0)
 					return false;
-				} else {
-					if(file_exists("../" . $_FILES["file"]["name"])) {
+				else {
+					if(file_exists("../" . $_FILES["file"]["name"]))
 						return false;
-					} else {
+					else {
 						if($unzip) {
 							if(in_array($extension, $allowedExts)) {
 								move_uploaded_file($_FILES["file"]["tmp_name"], "../" . $_FILES["file"]["name"]);
@@ -33,17 +33,15 @@
 								return true;
 							} else {
 								move_uploaded_file($_FILES["file"]["tmp_name"], "../" . $_FILES["file"]["name"]);
-								return false;
+								return true;
 							}
-						} else {
+						} else
 							move_uploaded_file($_FILES["file"]["tmp_name"], "../" . $_FILES["file"]["name"]);
-						}
 						return true;
 					}
 				}
-			} else {
+			} else
 				return false;
-			}
 		}
 		
 		/**
@@ -76,7 +74,22 @@
 		 * @return boolean
 		 */
 		public static function addPlugin($pluginFile) {
-			return false;
+			$allowedExts = array("php", "Php", "PHp", "PHP", "pHP", "phP");
+			$temp = explode(".", $_FILES["file"]["name"]);
+			$extension = end($temp);
+			if(($_FILES["file"]["size"] < 20000000) && in_array($extension, $allowedExts)) {
+				if($_FILES["file"]["error"] > 0)
+					return false;
+				else {
+					if(file_exists("./plugins/" . $_FILES["file"]["name"]))
+						return false;
+					else {
+						move_uploaded_file($_FILES["file"]["tmp_name"], "./plugins/" . $_FILES["file"]["name"]);
+						return true;
+					}
+				}
+			} else
+				return false;
 		}
 		
 		/**
@@ -172,6 +185,6 @@
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
 				Error::mysql_connect()
 			);
-			return mysql_query($statement);
+			mysql_query($statement);
 		}
 	}

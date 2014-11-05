@@ -10,7 +10,7 @@
 		
 		public static function getMySQL() {
 			//TODO: Fix Database Counter Bug :(
-			return (round(Action::executeSQL("SELECT COUNT(*) FROM information_schema.SCHEMA;") / Config::MAX_MySQL_DATABASES, 2));
+			return (100 - (round((Config::MAX_MySQL_DATABASES - Action::executeSQL("SELECT COUNT(*) FROM information_schema.SCHEMATA;")) / Config::MAX_MySQL_DATABASES, 2) * 100));
 		}
 		
 		public static function getWebmail() {
