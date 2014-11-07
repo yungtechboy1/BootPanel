@@ -39,7 +39,7 @@
 				}
 			} else {
 				die(
-					Error::invalid_requirement()
+					Error::ec_3491()
 				);
 			}
 		}

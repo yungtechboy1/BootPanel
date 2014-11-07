@@ -44,7 +44,6 @@
 					</body>
 				</html>
 			');
-		header("Location: ./");
 	}
 	
 	if(file_exists("./BootPanel.phar"))

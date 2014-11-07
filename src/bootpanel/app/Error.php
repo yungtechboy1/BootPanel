@@ -1,37 +1,39 @@
 <?php
 	class Error {
-		public static function mysql_connect() {
+		public static function ec_2874() {
 			die('
 				<html>
-				<head>
-					<title>BootPanel | Error</title>
-				</head>
-				<body>
-					<center>
-						<h1>Couldn\'t Connect To MySQL Database!</h1><hr>
-						<p>
-							Check that your MySQL Database is active and that your credentials are correct in the BootPanel Config.
-						</p>
-					</center>
-				</body>
+					<head>
+						<title>BootPanel | Error 2874</title>
+					</head>
+					<body>
+						<center>
+							<h1>Error 2874</h1><hr>
+							<p>
+								An Error 2874 occured.</br>
+								You can find an explanation for this error <a href="http://bootpanel.net/?troubleshooting">HERE</a>
+							</p>
+						</center>
+					</body>
 			  </html>
 			');
 		}
 		
-		public static function invalid_requirement() {
+		public static function ec_3491() {
 			die('
 				<html>
-				<head>
-					<title>BootPanel | Error</title>
-				</head>
-				<body>
-					<center>
-						<h1>Invalid Plugin Requirement!</h1><hr>
-						<p>
-							A plugin calls for an invalid requirement and can not be run.
-						</p>
-					</center>
-				</body>
+					<head>
+						<title>BootPanel | Error 3491</title>
+					</head>
+					<body>
+						<center>
+							<h1>Error 3491</h1><hr>
+							<p>
+								An Error 3491 occured.</br>
+								You can find an explanation for this error <a href="http://bootpanel.net/?troubleshooting">HERE</a>
+							</p>
+						</center>
+					</body>
 			  </html>
 			');
 		}

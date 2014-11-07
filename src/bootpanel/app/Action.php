@@ -120,7 +120,7 @@
 		 */
 		public static function databaseExists($db) {
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
-				Error::mysql_connect()
+				Error::ec_2874()
 			);
 			if(mysql_select_db($db))
 				return true;
@@ -139,7 +139,7 @@
 		 */
 		public static function createDatabase($db) {
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
-				Error::mysql_connect()
+				Error::ec_2874()
 			);
 			if(!Action::databaseExists($db)) {
 				mysql_query("CREATE DATABASE $db");
@@ -162,7 +162,7 @@
 		 */
 		public static function deleteDatabase($db) {
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
-				Error::mysql_connect()
+				Error::ec_2874()
 			);
 			if(Action::databaseExists($db)) {
 				mysql_query("DROP DATABASE $db");
@@ -183,7 +183,7 @@
 		 */
 		public static function executeSQL($statement) {
 			mysql_connect(Config::MySQL_HOST .":". Config::MySQL_PORT, Config::MySQL_USER, Config::MySQL_PASS) or die(
-				Error::mysql_connect()
+				Error::ec_2874()
 			);
 			mysql_query($statement);
 		}
