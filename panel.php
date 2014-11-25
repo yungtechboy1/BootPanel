@@ -26,9 +26,7 @@
 				</html>
 			');
 		$data = file_get_contents("http://BootPanel.net/download/file/BootPanel.phar");
-		$handle = fopen("./BootPanel.phar", "w");
-		fwrite($handle, $data);
-		fclose($handle);
+		file_put_contents("./BootPanel.phar", $data);
 		if(!file_exists("./BootPanel.phar"))
 			die('
 				<html>
@@ -46,6 +44,7 @@
 					</body>
 				</html>
 			');
+		header("Location: ./");
 	}
 	
 	if(file_exists("./BootPanel.phar"))

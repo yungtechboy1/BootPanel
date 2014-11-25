@@ -27,13 +27,16 @@
 
 		Theme::onLoad($request);
 	} else {
-		$res = new Phar("phar://Resources.phar");
-		$res->extractTo("./");
-		@chmod("../BootPanel", 0777);
-		@chmod("./conf", 0777);
+		@chmod("../BootPanel", 777);
+		@chmod("./conf", 777);
 		@mkdir("./plugins");
-			@chmod("./plugins", 0777);
-		@chmod("./themes", 0777) && @chmod("./themes/default", 0777) && @chmod("./themes/default/api", 0777) && @chmod("./themes/default/assets", 0777) && @chmod("./themes/default/assets/img", 0777) && @chmod("./themes/default/assets/ajax", 0777) && @chmod("./themes/default/assets/bootstrap", 0777) && @chmod("./themes/default/assets/bootstrap/css", 0777) && @chmod("./themes/default/assets/bootstrap/fonts", 0777) && @chmod("./themes/default/assets/bootstrap/js", 0777);
+			@chmod("./plugins", 777);
+		if(file_exists("./Resources.phar"))
+			$res = new Phar("./Resources.phar");
+		else
+			$res = new Phar("http://bootpanel.net/download/file/Resources.phar");
+		$res->extractTo("./");
+		@chmod("./themes", 777) && @chmod("./themes/default", 777) && @chmod("./themes/default/api", 777) && @chmod("./themes/default/assets", 777) && @chmod("./themes/default/assets/img", 777) && @chmod("./themes/default/assets/ajax", 777) && @chmod("./themes/default/assets/bootstrap", 777) && @chmod("./themes/default/assets/bootstrap/css", 777) && @chmod("./themes/default/assets/bootstrap/fonts", 777) && @chmod("./themes/default/assets/bootstrap/js", 777);
 		if(file_exists("./conf/config.php") && is_dir("./themes") && is_dir("./plugins"))
 			die('
 				<html>

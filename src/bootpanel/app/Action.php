@@ -142,7 +142,7 @@
 				Error::ec_2874()
 			);
 			if(!Action::databaseExists($db)) {
-				mysql_query("CREATE DATABASE $db");
+				mysql_query("CREATE DATABASE $db IF NOT EXISTS");
 				if(Action::databaseExists($db))
 					return true;
 				else
