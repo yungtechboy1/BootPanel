@@ -16,7 +16,7 @@
 				if(is_file("./conf/config.php") && is_dir("./plugins")) {
 					$init_called = true;
 					BootPanel::grabRes();
-					require 'BootPanel/src/bootpanel/Process.php';
+					require 'src/bootpanel/Process.php';
 					foreach(glob("./plugins/*.php") as $plugin) {
 						require $plugin;
 						$plugin = str_replace("./plugins/", null, str_replace(".php", null, $plugin));
@@ -62,11 +62,11 @@
 		
 		private static function grabRes() {
 			require './conf/config.php';
-			require 'BootPanel/src/bootpanel/UIManager.php';
-			require 'BootPanel/src/bootpanel/client/Auth.php';
-			require 'BootPanel/src/bootpanel/client/Stat.php';
-			require 'BootPanel/src/bootpanel/mgr/File.php';
-			require 'BootPanel/src/bootpanel/BPService.php';
+			require 'src/bootpanel/UIManager.php';
+			require 'src/bootpanel/client/Auth.php';
+			require 'src/bootpanel/client/Stat.php';
+			require 'src/bootpanel/mgr/File.php';
+			require 'src/bootpanel/BPService.php';
 		}
 		
 		public static function ping($host, $port = 80, $timeout = 6) {
@@ -77,7 +77,7 @@
 		}
 		
 		private static function create() {
-			$Phar = new Phar("BootPanel/res/Resources.phar");
+			$Phar = new Phar("src/res/Resources.phar");
 			if(!is_file("./conf/config.php"))
 				$Phar->extractTo("./");
 			@mkdir("./plugins");
