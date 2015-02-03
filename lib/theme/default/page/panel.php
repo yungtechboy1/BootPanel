@@ -34,14 +34,70 @@
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a data-toggle="modal" data-target="#logout">Logout</a></li>
+						<li><a data-toggle="modal" data-target="#logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 					</ul>
 				</div>
 			</div>
-		</div>
+		</div><br>
 		
 		<div class="container">
+			<div class="panel-group" id="accordion">
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#fileMgr">
+								<span class="glyphicon glyphicon-file"></span> File Manager
+							</a>
+						</h4>
+					</div>
+					<div id="fileMgr" class="panel-collapse collapse">
+						<div class="panel-body">
+							
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel panel-warning">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#sqlMgr">
+								<span class="glyphicon glyphicon-floppy-disk"></span> MySQL Management
+							</a>
+						</h4>
+					</div>
+					<div id="sqlMgr" class="panel-collapse collapse">
+						<div class="panel-body">
+							
+						</div>
+					</div>
+				</div>
+				
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#bootpanelConf">
+								<span class="glyphicon glyphicon-cog"></span> BootPanel Configuration
+							</a>
+						</h4>
+					</div>
+					<div id="bootpanelConf" class="panel-collapse collapse">
+						<div class="panel-body">
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
 			
+			<div class="panel panel-danger">
+				<div class="panel-heading">
+					<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Statistics</h3>
+				</div>
+				<div class="panel-body">
+					
+				</div>
+			</div>
 		</div>
 		
 		<div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="logoutLabel" aria-hidden="true">
@@ -52,7 +108,7 @@
 						<h4 class="modal-title" id="logoutLabel">Logout?</h4>
 					</div>
 					<div class="modal-body">
-						Are you sure you would like to logout?
+						<center><p>Are you sure you would like to logout?</p></center>
 					</div>
 					<div class="modal-footer">
 						<center>
