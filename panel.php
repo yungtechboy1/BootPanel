@@ -1,20 +1,20 @@
 <?php
-	if(is_file("./BootPanel.phar"))
-		require './BootPanel.phar';
-	elseif(is_file("./BootPanel/src/bootpanel/BootPanel.php"))
-		require './BootPanel/src/bootpanel/BootPanel.php';
-	else
+	if(file_exists("./lib/BootPanel.php")) {
+		require './lib/BootPanel.php';
+		BootPanel::__init();
+	} elseif(file_exists('./BootPanel.phar')) {
+		$package = new Phar("./BootPanel.phar");
+		$package->extractTo("./");
+	} else
 		die('<html>
 				<head>
 					<title>BootPanel | ERROR</title>
 				</head>
 				<body>
 					<center>
-						<h3>Couldn\'t Find BootPanel Installation!</h3><hr>
-						<p>
-							No BootPanel installation was found in "'. __DIR__ .'"!<br>
-							Please download one from <a href="http://BootPanel.net/bp/?download">HERE</a> and place it in "'. __DIR__ .'"
-						</p>
+						<h1>No BootPanel Installation Found!</h1><hr>
+						No \'BootPanel.phar\' file could be found in \''. __DIR__ . DIRECTORY_SEPARATOR .'\'!<br>
+						Please upload a \'BootPanel.phar\' file to your BootPanel Directory (Shown Above) and try again.
 					</center>
 				</body>
 			 </html>');
