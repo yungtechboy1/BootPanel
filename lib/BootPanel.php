@@ -1,7 +1,8 @@
 <?php
 	session_start();
 	ob_start();
-	
+
+	require 'lib/API.php';
 	require 'lib/Config.php';
 	require 'lib/theme/ThemeLoader.php';
 	require 'lib/auth/Authenticator.php';
@@ -25,6 +26,10 @@
 				} else
 					BootPanel::__create();
 			}
+		}
+		
+		public static function getAPI() {
+			return new API();
 		}
 		
 		public static function getAuthenticator() {

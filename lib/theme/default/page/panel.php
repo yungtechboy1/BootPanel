@@ -46,14 +46,17 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<h4 class="panel-title">
+							<span class="glyphicon glyphicon-file"></span> 
 							<a data-toggle="collapse" data-parent="#accordion" href="#fileMgr">
-								<span class="glyphicon glyphicon-file"></span> File Manager
+								File Manager
 							</a>
 						</h4>
 					</div>
 					<div id="fileMgr" class="panel-collapse collapse">
 						<div class="panel-body">
-							
+							<?php
+								require 'lib/theme/default/panel/FileMgr.php';
+							?>
 						</div>
 					</div>
 				</div>
@@ -61,14 +64,17 @@
 				<div class="panel panel-warning">
 					<div class="panel-heading">
 						<h4 class="panel-title">
+							<span class="glyphicon glyphicon-floppy-disk"></span> 
 							<a data-toggle="collapse" data-parent="#accordion" href="#sqlMgr">
-								<span class="glyphicon glyphicon-floppy-disk"></span> MySQL Management
+								MySQL Management
 							</a>
 						</h4>
 					</div>
 					<div id="sqlMgr" class="panel-collapse collapse">
 						<div class="panel-body">
-							
+							<?php
+								require 'lib/theme/default/panel/MySQL.php';
+							?>
 						</div>
 					</div>
 				</div>
@@ -76,14 +82,17 @@
 				<div class="panel panel-info">
 					<div class="panel-heading">
 						<h4 class="panel-title">
+							<span class="glyphicon glyphicon-cog"></span> 
 							<a data-toggle="collapse" data-parent="#accordion" href="#bootpanelConf">
-								<span class="glyphicon glyphicon-cog"></span> BootPanel Configuration
+								BootPanel Configuration
 							</a>
 						</h4>
 					</div>
 					<div id="bootpanelConf" class="panel-collapse collapse">
 						<div class="panel-body">
-							
+							<?php
+								require 'lib/theme/default/panel/BootPanelConf.php';
+							?>
 						</div>
 					</div>
 				</div>
@@ -95,7 +104,9 @@
 					<h3 class="panel-title"><span class="glyphicon glyphicon-cloud"></span> Statistics</h3>
 				</div>
 				<div class="panel-body">
-					
+					<?php
+						require 'lib/theme/default/panel/Stats.php';
+					?>
 				</div>
 			</div>
 		</div>
@@ -119,6 +130,10 @@
 				</div>
 			</div>
 		</div>
+		
+		<?php
+			require 'lib/theme/default/panel/Modals.php';
+		?>
 		
 		<script src="lib/theme/default/assets/js/jQuery.min.js"></script>
 		<script src="lib/theme/default/assets/js/bootstrap.min.js"></script>

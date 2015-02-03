@@ -24,7 +24,10 @@
 			<div class="form-signin">
 				<?php
 					if(isset($_POST['password']) && !empty($_POST['password']))
-						echo '<center><p class="alert alert-danger">Login Failed!</p></center>';
+						echo '<div class="alert alert-danger fade in" role="alert">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<center><strong>Login Failed!</strong></center>
+							  </div>';
 				?>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
@@ -39,11 +42,13 @@
 				</div>
 				<?php
 					if(BootPanel::getConfig()->get("Password") == BootPanel::secure("Admin"))
-						echo '<center><p class="alert alert-danger">Default Password: <code>Admin</code><br>(Change password to remove message)</p></center>';
+						echo '<center><p class="alert alert-danger"><strong>Default Password: <code>Admin</code></strong><br>(Change password to remove message)</p></center>';
 				?>
 			</div>
 		</div>
 		
+		<script src="lib/theme/default/assets/js/jQuery.min.js"></script>
+		<script src="lib/theme/default/assets/js/bootstrap.min.js"></script>
 		<script src="lib/theme/default/assets/js/ie10-viewport-bug-workaround.js"></script>
 	</body>
 </html>
