@@ -11,7 +11,6 @@
 		<title>BootPanel | Login</title>
 		
 		<link href="lib/theme/default/assets/css/bootstrap.min.css" rel="stylesheet">
-		
 		<link href="lib/theme/default/assets/css/back.css" rel="stylesheet">
 		
 		<!--[if lt IE 9]>
@@ -23,6 +22,10 @@
 	<body>
 		<div class="container">
 			<div class="form-signin">
+				<?php
+					if(isset($_POST['password']) && !empty($_POST['password']))
+						echo '<center><p class="alert alert-danger">Login Failed!</p></center>';
+				?>
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> BootPanel Login</h3>
@@ -34,7 +37,8 @@
 						</form>
 					</div>
 				</div>
-				<?php if(BootPanel::getConfig()->get("Password") == BootPanel::secure("Admin"))
+				<?php
+					if(BootPanel::getConfig()->get("Password") == BootPanel::secure("Admin"))
 						echo '<center><p class="alert alert-danger">Default Password: <code>Admin</code><br>(Change password to remove message)</p></center>';
 				?>
 			</div>
