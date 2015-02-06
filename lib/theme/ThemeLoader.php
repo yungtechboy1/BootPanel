@@ -1,23 +1,28 @@
 <?php
+	require 'lib/theme/Theme.php';
+	
 	class ThemeLoader {
 		public static function loadTheme() {
-			static $theme_loaded = false;
-			if(!$theme_loaded) {
-				$theme = BootPanel::getConfig()->get("Theme");
-				if($theme == "default") {
-					require 'lib/theme/default/Theme.php';
-					$theme = new Theme();
-					if(BootPanel::getAuthenticator()->isLoggedIn())
+			static $loadTheme_called;
+			if(!$loadTheme_called) {
+				$theme = BootPanel::getConfig("BootPanel")->get("Theme");
+				if(strtolower($theme) == "default") {
+					require 'lib/theme/Default_Theme/Default_Theme.php';
+					$theme = new Default_Theme();
+					if(BootPanel::getAPI()->getAuth()->isLoggedIn())
 						$theme->onPanelRequested();
 					else
 						$theme->onLoginRequested();
 				} else {
-					require './themes/'. $theme .'/Theme.php';
-					$theme = new Theme();
-					if(BootPanel::getAuthenticator()->isLoggedIn())
-						$theme->onPanelRequested();
-					else
-						$theme->onLoginRequested();
+					require './themes/'. $theme .'/'. $theme .'.php';
+					if(class_exists($theme)) {
+						$theme = new $theme();
+						if(in_array("Theme", class_implements($theme)))
+							if(BootPanel::getAPI()->getAuth()->isLoggedIn())
+								$theme->onPanelRequested();
+							else
+								$theme->onLoginRequested();
+					}
 				}
 			}
 		}
