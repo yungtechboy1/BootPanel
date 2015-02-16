@@ -21,7 +21,7 @@
 				if(is_dir("./themes") && is_dir("./plugins")) {
 					$init_called = true;
 					if($bypass_login)
-						BootPanel::getAPI()->getAuth()->doLogin(BootPanel::getConfig("BootPanel")->get("Password"));
+						BootPanel::getAPI()->getAuth()->doLogin("BootPanel", BootPanel::getConfig("BootPanel")->get("Password", "Username='BootPanel'"));
 					ThemeLoader::loadTheme();
 					PluginLoader::loadPlugins();
 				} else

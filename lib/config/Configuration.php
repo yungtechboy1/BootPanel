@@ -17,18 +17,24 @@
 			$db->close();
 		}
 		
-		public function get($option) {
+		public function get($option, $condition = null) {
 			$db = new SQLite3($this->config);
-			$result = $db->query("SELECT $option FROM $this->table");
+			if($condition == null)
+				$result = $db->query("SELECT $option FROM $this->table");
+			else
+				$result = $db->query("SELECT $option FROM $this->table WHERE $condition");
 			while($row = $result->fetchArray()) {
 				return $row[$option];
 			}
 			$db->close();
 		}
 		
-		public function set($columm, $new, $old) {
+		public function set($columm, $new, $old, $extra = null) {
 			$db = new SQLite3($this->config);
-			$db->exec("UPDATE $this->table SET $columm='$new' WHERE $columm='$old'");
+			if($extra == null)
+				$db->exec("UPDATE $this->table SET $columm='$new' WHERE $columm='$old'");
+			else
+				$db->exec("UPDATE $this->table SET $columm='$new' WHERE $columm='$old' $extra");
 			$db->close();
 		}
 		

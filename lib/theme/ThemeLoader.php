@@ -6,7 +6,7 @@
 			static $loadTheme_called;
 			if(!$loadTheme_called) {
 				$theme = BootPanel::getConfig("BootPanel")->get("Theme");
-				if(strtolower($theme) == "default") {
+				if(strtolower($theme) == "default_theme") {
 					require 'lib/theme/Default_Theme/Default_Theme.php';
 					$theme = new Default_Theme();
 					if(BootPanel::getAPI()->getAuth()->isLoggedIn())

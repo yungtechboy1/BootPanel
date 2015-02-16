@@ -1,18 +1,28 @@
 <?php
 	class Authentication {
 		public function isLoggedIn() {
-			if(isset($_SESSION['login']))
-				if($_SESSION['login'] == BootPanel::getConfig("BootPanel")->get("Password"))
+			if(isset($_SESSION['user']) && isset($_SESSION['login'])) {
+				$user = $_SESSION['user'];
+				if($_SESSION['login'] == BootPanel::getConfig("BootPanel")->get("Password", "Username='$user'"))
 					return true;
+// 				if($_SESSION['login'] == BootPanel::getConfig("BootPanel")->get("Password"))
+// 					return true;
+			}
 			return false;
 		}
 		
-		public function doLogin($password) {
+		public function getName() {
+			if(BootPanel::getAPI()->getAuth()->isLoggedIn())
+				return $_SESSION['user'];
+		}
+		
+		public function doLogin($username, $password) {
+			$_SESSION['user'] = $username;
 			$_SESSION['login'] = $password;
 		}
 		
 		public function changePass($old, $new) {
-			BootPanel::getConfig("BootPanel")->set("Password", $new, $old);
+			BootPanel::getConfig("BootPanel")->set("Password", $new, $old, "AND Username='". BootPanel::getAPI()->getAuth()->getName() ."'");
 		}
 		
 		public function logout() {
