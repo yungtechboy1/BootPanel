@@ -26,11 +26,14 @@
 					<div class="panel-body">
 						<?php
 							BootPanel::getAPI()->getDesigner()->getLoginForm();
-							if(BootPanel::getConfig("BootPanel")->get("Password", "Username='BootPanel'") == BootPanel::secure("Admin"))
-								echo "<p class='alert alert-danger'>Default Username: <code>BootPanel</code><br>Default Password: <code>Admin</code></p>";
 						?>
 					</div>
 				</div>
+				<?php
+					if(BootPanel::getConfig("BootPanel")->get("Password", "Username='BootPanel'") == BootPanel::secure("Admin"))
+						echo "<p class='alert alert-danger'>Default Username: <code>BootPanel</code><br>Default Password: <code>Admin</code></p>";
+				?>
+				<p class="text-muted" align="right">&copy; BootPanel</p>
 			</div>
 		</div>
 	
