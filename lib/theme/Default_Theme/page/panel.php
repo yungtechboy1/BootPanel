@@ -37,10 +37,13 @@
 					</ul>
 				</div>
 			</div>
-		</nav>
+		</nav><br>
 	
 		<div class="container">
-			
+			<?php
+				if(!BootPanel::getAPI()->license()->isValid())
+					echo '<center><p class="alert alert-warning form-signin">You are using an unpaid version of BootPanel</p></center>';
+			?>
 		</div>
 
 		<script src="lib/theme/Default_Theme/assets/js/jQuery.js"></script>
