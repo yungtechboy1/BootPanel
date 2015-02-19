@@ -106,7 +106,7 @@
 				</div>
 			</div>
 			
-			<p class="text-muted" align="right">&copy; BootPanel</p>
+			<p class="text-muted" align="right">Version <?php echo BootPanel::VERSION; ?> | &copy; <a target="_blank" href="http://BootPanel.net">BootPanel</a></p>
 		</div>
 
 		<script src="lib/theme/Default_Theme/assets/js/jQuery.js"></script>

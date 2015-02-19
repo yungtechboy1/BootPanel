@@ -33,7 +33,7 @@
 					if(BootPanel::getConfig("BootPanel")->get("Password", "Username='BootPanel'") == BootPanel::secure("Admin"))
 						echo "<p class='alert alert-danger'>Default Username: <code>BootPanel</code><br>Default Password: <code>Admin</code></p>";
 				?>
-				<p class="text-muted" align="right">&copy; BootPanel</p>
+				<p class="text-muted" align="right">Version <?php echo BootPanel::VERSION; ?> | &copy; <a target="_blank" href="http://BootPanel.net">BootPanel</a></p>
 			</div>
 		</div>
 	
