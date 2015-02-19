@@ -49,12 +49,12 @@
 					<div class="panel-heading" role="tab" id="headingOne">
 						<h4 class="panel-title">
 							<span class="glyphicon glyphicon-file"></span>
-							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+							<a data-toggle="collapse" data-parent="#accordion" href="#fileMgr" aria-expanded="true" aria-controls="fileMgr">
 								File Manager
 							</a>
 						</h4>
 					</div>
-					<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+					<div id="fileMgr" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 						<div class="panel-body">
 							
 						</div>
@@ -64,12 +64,12 @@
 					<div class="panel-heading" role="tab" id="headingTwo">
 						<h4 class="panel-title">
 							<span class="glyphicon glyphicon-cloud"></span>
-							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#sqlMgr" aria-expanded="false" aria-controls="sqlMgr">
 								MySQL Database Manager
 							</a>
 						</h4>
 					</div>
-					<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+					<div id="sqlMgr" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 						<div class="panel-body">
 							
 						</div>
@@ -79,12 +79,12 @@
 					<div class="panel-heading" role="tab" id="headingThree">
 						<h4 class="panel-title">
 							<span class="glyphicon glyphicon-cog"></span>
-							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+							<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#bootpanelConf" aria-expanded="false" aria-controls="bootpanelConf">
 								BootPanel Configuration
 							</a>
 						</h4>
 					</div>
-					<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+					<div id="bootpanelConf" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 						<div class="panel-body">
 							
 						</div>
@@ -97,7 +97,12 @@
 					<h3 class="panel-title"><span class="glyphicon glyphicon-tasks"></span> Statistics</h3>
 				</div>
 				<div class="panel-body">
-					
+					<h3><span class="glyphicon glyphicon-hdd"></span> <u>HDD Usage</u></h3>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="<?php echo BootPanel::getAPI()->usage()->getHDD(); ?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo BootPanel::getAPI()->usage()->getHDD(); ?>%;">
+							<?php echo BootPanel::getAPI()->usage()->getHDD(); ?>%
+						</div>
+					</div>
 				</div>
 			</div>
 			
