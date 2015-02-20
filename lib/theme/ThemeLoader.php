@@ -9,7 +9,7 @@
 				if(strtolower($theme) == "default_theme") {
 					require 'lib/theme/Default_Theme/Default_Theme.php';
 					$theme = new Default_Theme();
-					if(BootPanel::getAPI()->getAuth()->isLoggedIn())
+					if(BootPanel::getAPI()->auth()->isLoggedIn())
 						$theme->onPanelRequested();
 					else
 						$theme->onLoginRequested();
@@ -18,7 +18,7 @@
 					if(class_exists($theme)) {
 						$theme = new $theme();
 						if(in_array("Theme", class_implements($theme)))
-							if(BootPanel::getAPI()->getAuth()->isLoggedIn())
+							if(BootPanel::getAPI()->auth()->isLoggedIn())
 								$theme->onPanelRequested();
 							else
 								$theme->onLoginRequested();

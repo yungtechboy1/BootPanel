@@ -5,11 +5,11 @@
 	require 'lib/api/stats/Usage.php';
 	
 	class API {
-		public function getAuth() {
+		public function auth() {
 			return new Authentication();
 		}
 		
-		public function getDesigner() {
+		public function designer() {
 			return new Designer();
 		}
 		

@@ -21,16 +21,20 @@
 	<body>
 		<div class="container">
 			<div class="form-signin">
+				<?php
+					if(BootPanel::isDemoMode())
+						echo '<center><p class="alert alert-warning">This is a DEMO version of BootPanel!</p></center>';
+				?>
 				<div class="panel panel-primary">
 					<div class="panel-heading"><h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> BootPanel Login</h3></div>
 					<div class="panel-body">
 						<?php
-							BootPanel::getAPI()->getDesigner()->getLoginForm();
+							BootPanel::getAPI()->designer()->getLoginForm();
 						?>
 					</div>
 				</div>
 				<?php
-					if(BootPanel::getConfig("BootPanel")->get("Password", "Username='BootPanel'") == BootPanel::secure("Admin"))
+					if(BootPanel::getAPI()->auth()->isDefault())
 						echo "<p class='alert alert-danger'>Default Username: <code>BootPanel</code><br>Default Password: <code>Admin</code></p>";
 				?>
 				<p class="text-muted" align="right">Version <?php echo BootPanel::VERSION; ?> | &copy; <a target="_blank" href="http://BootPanel.net">BootPanel</a></p>

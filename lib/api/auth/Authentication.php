@@ -5,9 +5,13 @@
 				$user = $_SESSION['user'];
 				if($_SESSION['login'] == BootPanel::getConfig("BootPanel")->get("Password", "Username='$user'"))
 					return true;
-// 				if($_SESSION['login'] == BootPanel::getConfig("BootPanel")->get("Password"))
-// 					return true;
 			}
+			return false;
+		}
+		
+		public function isDefault() {
+			if(BootPanel::getConfig("BootPanel")->get("Password", "Username='BootPanel'") == BootPanel::secure("Admin"))
+				return true;
 			return false;
 		}
 		

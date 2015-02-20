@@ -28,8 +28,7 @@
  						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand">BootPanel</a>
-				</div>
+					<a class="navbar-brand">BootPanel<?php if(BootPanel::isDemoMode()) echo ' DEMO'; ?></div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="./?logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -41,9 +40,8 @@
 		<div class="container">
 			<?php
 				if(!BootPanel::getAPI()->license()->isValid())
-					echo '<center><p class="alert alert-warning form-signin">You are using an unpaid version of BootPanel</p></center>';
+					echo '<center><p class="alert alert-warning form-signin">You are using an unpaid version of BootPanel!</p></center><br>';
 			?>
-		
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne">
