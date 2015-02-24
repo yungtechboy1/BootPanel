@@ -1,6 +1,6 @@
 <?php
 	$bypass_login = false;
-	$demo_mode = true;
+	$demo_mode = false;
 
 	if(file_exists('./lib/BootPanel.php')) {
 		require './lib/BootPanel.php';

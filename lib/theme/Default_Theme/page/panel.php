@@ -7,9 +7,9 @@
 		<meta name="description" content="">
 		<meta name="author" content="BootPanel">
 		<link rel="icon" href="lib/theme/Default_Theme/assets/img/favicon.ico">
-	
+
 		<title>BootPanel | Panel</title>
-	
+
 		<link href="lib/theme/Default_Theme/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="lib/theme/Default_Theme/assets/css/back.css" rel="stylesheet">
 	
