@@ -88,6 +88,21 @@
 						</div>
 					</div>
 				</div>
+                                <div class="panel panel-info">e
+                                            <div class="panel-heading" role="tab" id="headingThree">
+                                                    <h4 class="panel-title">
+                                                            <span class="glyphicon glyphicon-cog"></span>
+                                                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#bootpanelConf" aria-expanded="false" aria-controls="bootpanelConf">
+                                                                    Server Console
+                                                            </a>
+                                                    </h4>
+                                            </div>
+                                            <div id="bootpanelConf" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                    <div class="panel-body">
+                                                        IFRAME GOES HERE!
+                                                    </div>
+                                            </div>
+                                    </div>
 			</div>
 			
 			<div class="panel panel-danger">

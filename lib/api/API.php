@@ -3,6 +3,7 @@
 	require 'lib/api/designer/Designer.php';
 	require 'lib/api/key/LicenseKey.php';
 	require 'lib/api/stats/Usage.php';
+	require 'lib/api/stats/Console.php';
 	
 	class API {
 		public function auth() {
@@ -20,4 +21,8 @@
 		public function usage() {
 			return new Usage();
 		}
+                
+                public function console(){
+                    return new Console();
+                }
 	}
